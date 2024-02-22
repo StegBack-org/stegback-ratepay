@@ -1,0 +1,27 @@
+{
+    "name": "stegback/ratepay",
+    "description": "ratepay package is for communication beetween client side and ratepay api, you can send direct array to xml api request.",
+    "type": "librarry",
+    "license": "MIT",
+    "keywords": [
+        "Stegback",
+        "ratepay-payment-gateway"
+    ],
+    "autoload": {
+
+        "psr-4": {
+            "Stegback\\Ratepay\\": "src/"
+        },
+        "files": [
+            "src/app/CommonHelper.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Kartik Maandothiya | Stegback"
+        }
+    ],
+    "require": {
+        "php": "^8.*"
+    }
+}
