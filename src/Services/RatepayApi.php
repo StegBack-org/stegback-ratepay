@@ -16,7 +16,7 @@ class RatepayApi
         $this->securityCode = env('SECURITY_CODE');
     }
 
-    public function paymentRequest($data)
+    public function request($data)
     {
         $method = $data['method'];
         $device_token = $data['device_token'];
@@ -68,14 +68,13 @@ class RatepayApi
         return $this->xmlResponseToArray($response);
     }
 
-    public function paymentConfirm($data)
+    public function paymentCapture($data)
     {
         $transactionId = $data['transactionId'];
 
         if (!$transactionId) {
             return response()->json(['error' => 'Transaction id is missing.'], 500);
         }
-
         $xmlRequest = (new BuildXmlService)->build([
             'operation' => 'PAYMENT_CONFIRM',
             'profileID' => $this->profileID,
@@ -84,11 +83,8 @@ class RatepayApi
             'method' => '',
             'order_id' => $data['order_id'],
         ]);
-
         $response = (new CurlService)->sendRequest($xmlRequest);
-
         return $this->xmlResponseToArray($response);
-
     }
 
     public function EmiPaymentRequest($transactionId, $method, $device_token, $data)

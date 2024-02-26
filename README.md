@@ -1,10 +1,11 @@
 ```cmd
 composer require stegback/ratepay
 ```
-*Define secret code in your env file*
+
+_Define secret code in your env file_
+
 ```env
+SHOP_NAME="MyWebsite"
 PROFILE_ID=""
 SECURITY_CODE=""
 ```
-
-

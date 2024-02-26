@@ -17,14 +17,11 @@ class RatepayShippmentApi
         $this->securityCode = env('SECURITY_CODE');
     }
 
-    public function shippingAddToOrder($data)
+    public function deliveryConfirm($data)
     {
-        $method = $data['method'];
         $transactionId = $data['transactionId'];
         $order_id = $data['order_id'];
-
         $paymentResponse = $this->addShippingBuildXml($transactionId, $order_id, $data);
-
         return response()->json($paymentResponse);
     }
 

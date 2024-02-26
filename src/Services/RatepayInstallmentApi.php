@@ -34,12 +34,16 @@ class RatepayInstallmentApi
     }
 
 
-    public function EmiCalculationRequest(Request $request)
+    /**
+     * @param amount
+     * @param type time | rate
+     * @param integer value number of month or emi
+     */
+    public function EMICalculationRequest($request)
     {
-       
-        $amount = $request->input('amount');
-        $type = $request->input('type');
-        $value = $request->input('value');
+        $amount = $request['amount'];
+        $type = $request['type'];
+        $value = $request['value'];
 
         $xmlRequest = (new BuildXmlService)->calculation([
             'operation' => 'CALCULATION_REQUEST',

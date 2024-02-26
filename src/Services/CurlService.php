@@ -8,9 +8,7 @@ class CurlService
     public function __construct()
     {
         $this->apiUrl = 'https://gateway-int.ratepay.com/api/xml/1_0';
-       
     }
-
 
     public function sendRequest($reqXML)
     {

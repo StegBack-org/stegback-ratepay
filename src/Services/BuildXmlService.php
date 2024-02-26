@@ -16,7 +16,7 @@ class BuildXmlService
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
 
         $xmlString .= '<head>
-        <system-id>myshop</system-id>
+        <system-id>'.env('SHOP_NAME').'</system-id>
         <operation>' . $operation . '</operation>
         <credential>
             <profile-id>' . $profileID . '</profile-id>
@@ -133,7 +133,7 @@ class BuildXmlService
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
 
         $xmlString .= '<head>
-        <system-id>myshop</system-id>
+        <system-id>'.env('SHOP_NAME').'</system-id>
         <operation subtype="calculation-by-' . $data['type'] . '">' . $operation . '</operation>
         <credential>
             <profile-id>' . $profileID . '</profile-id>
@@ -183,7 +183,7 @@ class BuildXmlService
         $xmlString = '<?xml version="1.0" encoding="UTF-8"?>';
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
         $xmlString .= '<head>
-                        <system-id>myshop</system-id>
+                        <system-id>'.env('SHOP_NAME').'</system-id>
                         <operation>' . $operation . '</operation>
                         <credential>
                             <profile-id>' . $profileID . '</profile-id>
@@ -285,7 +285,7 @@ class BuildXmlService
 
         $xmlString .=
             '<head>
-                <system-id>MyTestsystem</system-id>
+                <system-id>'.env('SHOP_NAME').'</system-id>
                 <transaction-id>' . $transactionId . '</transaction-id>
                 <operation>' . $operation . '</operation>
                 <credential>
@@ -319,8 +319,8 @@ class BuildXmlService
 
         $xmlString .=
             '</items>
-                    <discount unit-price-gross="-' . $data['orderData']['discountAmount'] . '" tax-rate="19">Rabatt</discount>
-                    <shipping unit-price-gross="' . $data['orderData']['shippingAmount'] . '" tax-rate="19">Versandkosten</shipping>
+                    <discount unit-price-gross="-' . $data['tracking_data']['discountAmount'] . '" tax-rate="19">Rabatt</discount>
+                    <shipping unit-price-gross="' . $data['tracking_data']['shippingAmount'] . '" tax-rate="19">Versandkosten</shipping>
                 </shopping-basket>
             </content>';
 
