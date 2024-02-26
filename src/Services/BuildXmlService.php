@@ -328,4 +328,53 @@ class BuildXmlService
         return $xmlString;
     }
 
+
+    public function returnOrCancel(array $data)
+    {
+        $transactionId = $data['transaction_id'];
+        
+        $profileID = htmlspecialchars($data['profileID']);
+        $securityCode = htmlspecialchars($data['securityCode']);
+
+        $xmlString = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
+
+        $xmlString .= '<head><system-id>myshop</system-id>';
+        $xmlString .= '<transaction-id>'.$data['transaction_id'].'</transaction-id>';
+        switch ($data['subtype']) {
+            case 'cancellation':
+                $xmlString .= '<operation subtype="cancellation">' . $data['operation'] . '</operation>';
+                break;
+            case 'return':
+                $xmlString .= '<operation subtype="return">' . $data['operation'] . '</operation>';
+            }
+        $xmlString .= '<credential>
+                            <profile-id>' . $profileID . '</profile-id>
+                            <securitycode>' . $securityCode . '</securitycode>
+                        </credential>';
+
+        $xmlString .= '</head>';
+
+        $xmlString .= '<content>';
+
+        $xmlString .= '<shopping-basket amount="'.$data['product']['total_amount'].'" currency="EUR">';
+
+        switch ($data['type']) {
+            case 'partial':
+                $xmlString .= '<items>';
+
+                foreach($data['product']['item'] as $item){
+                    $xmlString .= '<item article-number="'.$item['product_id'].'" quantity="'.$item['product_quantity'].'" tax-rate="19" unit-price-gross="'.$item['product_price'].'">'.$item['product_name'].'</item>';
+                }
+
+                 $xmlString .= '</items>
+                                <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="19">Rabatt</discount>';
+                break;
+            case 'full':
+                $xmlString .= '<items/>';
+            }
+            
+        $xmlString .= '</shopping-basket></content></request>';
+        return $xmlString;
+    }
 }
