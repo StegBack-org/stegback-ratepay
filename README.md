@@ -23,3 +23,9 @@ SHOP_NAME="MyWebsite"
 PROFILE_ID=""
 SECURITY_CODE=""
 ```
+
+Step 3: Define Service provider in config/app.php in providers
+
+```php
+\Stegback\Ratepay\RatepayServiceProvider::class,
+```
