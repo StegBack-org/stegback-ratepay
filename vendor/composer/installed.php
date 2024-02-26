@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'stegback/ratepay',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '57f5b6f410b821d45c4a57573915ed5e627e0f2e',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '1db55f8178d5aa65384a4e6bd477100e65f1692f',
         'type' => 'librarry',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'stegback/ratepay' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '57f5b6f410b821d45c4a57573915ed5e627e0f2e',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '1db55f8178d5aa65384a4e6bd477100e65f1692f',
             'type' => 'librarry',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

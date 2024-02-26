@@ -3,7 +3,6 @@
     "description": "ratepay package is for communication beetween client side and ratepay api, you can send direct array to xml api request.",
     "type": "librarry",
     "license": "MIT",
-    "version": "1.0.0",
     "keywords": [
         "Stegback",
         "ratepay-payment-gateway"
