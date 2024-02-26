@@ -10,8 +10,8 @@
 </p>
 
 
-**Document** : []
-- [Document]([https://laravel.com/docs/routing](https://stegback-ratepay.document360.io/docs)).
+- [Document](https://stegback-ratepay.document360.io/docs).
+- 
 ```cmd
 composer require stegback/ratepay
 ```
