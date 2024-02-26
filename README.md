@@ -3,10 +3,10 @@
   <img src="https://stegback.com/root/storage/uploads/white-logo.png" width="400" alt="Stegback Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/stegback/ratepay/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/stegback/ratepay/actions"><img src="https://github.com/stegback/ratepay/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/dt/stegback/ratepay" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/v/stegback/ratepay" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/l/stegback/ratepay" alt="License"></a>
 </p>
 
 
