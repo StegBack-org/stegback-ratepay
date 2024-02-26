@@ -13,7 +13,7 @@ class RatepayServiceProvider extends ServiceProvider
         if (File::exists(__DIR__ . '\app\CommonHelper.php')) {
             require __DIR__ . '\app\CommonHelper.php';
         }
-        $this->loadRoutesFrom(__DIR__ . '/routes/ratepay-api.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->loadViewsFrom(__DIR__ . '/views', 'Ratepay');
     }
 
