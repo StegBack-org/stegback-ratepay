@@ -11,7 +11,6 @@
 
 
 - [**Documentation**](https://stegback-ratepay.document360.io/docs).
-- 
   
 ```cmd
 composer require stegback/ratepay
