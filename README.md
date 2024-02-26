@@ -10,8 +10,9 @@
 </p>
 
 
-- [Document](https://stegback-ratepay.document360.io/docs).
+- [**Documentation**](https://stegback-ratepay.document360.io/docs).
 - 
+  
 ```cmd
 composer require stegback/ratepay
 ```
