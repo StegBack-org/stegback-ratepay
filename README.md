@@ -10,12 +10,13 @@
 
 
 - [**Documentation**](https://stegback-ratepay.document360.io/docs).
-  
+
+**Step 1: Install the Package via Composer**
 ```cmd
 composer require stegback/ratepay
 ```
 
-_Define secret code in your env file_
+**Step 2: Define secret code in your env file**
 
 ```env
 
@@ -24,7 +25,7 @@ PROFILE_ID=""
 SECURITY_CODE=""
 ```
 
-Step 3: Define Service provider in config/app.php in providers
+**Step 3: Define Service provider in config/app.php in providers**
 
 ```php
 \Stegback\Ratepay\RatepayServiceProvider::class,
