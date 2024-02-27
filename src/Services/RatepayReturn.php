@@ -70,8 +70,24 @@ class RatepayReturn
         
     }
 
-    public function changeOrder()
+    public function changeOrder($transaction_id, array $NewProduct)
     {
-        
+        if(!$transaction_id || $transaction_id == '')
+        {
+            $response = '<content><error code="400">transaction_id is required.</error></content>';
+        }else{
+               $xmlRequest = (new BuildXmlService)->returnOrCancel([
+                'operation' => 'PAYMENT_CHANGE',
+                'subtype' => 'change-order',
+                'type' => 'partial',
+                'profileID' => $this->profileID,
+                'securityCode' => $this->securityCode,
+                'transaction_id' => $transaction_id,
+                'product' => $NewProduct,
+            ]);
+            $response = (new CurlService)->sendRequest($xmlRequest);
+        }
+        $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+        return $responseArray;
     }
 }

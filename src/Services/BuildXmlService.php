@@ -347,6 +347,9 @@ class BuildXmlService
                 break;
             case 'return':
                 $xmlString .= '<operation subtype="return">' . $data['operation'] . '</operation>';
+                break;
+            case 'change-order':
+                $xmlString .= '<operation subtype="change-order">' . $data['operation'] . '</operation>';
             }
         $xmlString .= '<credential>
                             <profile-id>' . $profileID . '</profile-id>
@@ -368,7 +371,8 @@ class BuildXmlService
                 }
 
                  $xmlString .= '</items>
-                                <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="19">Rabatt</discount>';
+                                <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="19">Rabatt</discount>
+                                <discount unit-price-gross="'.@$data['product']['shipping'].'" tax-rate="19">Versandkosten</discount>';
                 break;
             case 'full':
                 $xmlString .= '<items/>';
