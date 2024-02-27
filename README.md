@@ -1,4 +1,3 @@
-
 <p align="center"><a href="https://laravel.com" target="_blank">
   <img src="https://stegback.com/root/storage/uploads/white-logo.png" width="400" alt="Stegback Logo"></a></p>
 
@@ -8,10 +7,10 @@
 <a href="https://packagist.org/packages/stegback/ratepay"><img src="https://img.shields.io/packagist/l/stegback/ratepay" alt="License"></a>
 </p>
 
-
 - [**Documentation**](https://stegback-ratepay.document360.io/docs).
 
 **Step 1: Install the Package via Composer**
+
 ```cmd
 composer require stegback/ratepay
 ```
@@ -29,4 +28,10 @@ SECURITY_CODE=""
 
 ```php
 \Stegback\Ratepay\RatepayServiceProvider::class,
+```
+
+**Step 4: Force Publish vendore views**
+
+```cmd
+php artisan vendor:publish --tag=stegback-ratepay-views --force
 ```

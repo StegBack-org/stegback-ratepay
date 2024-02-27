@@ -14,7 +14,13 @@ class RatepayServiceProvider extends ServiceProvider
             require __DIR__ . '\app\CommonHelper.php';
         }
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/views', 'Ratepay');
+
+        $this->loadViewsFrom(resource_path('views'), 'laravel');
+        $this->loadViewsFrom(__DIR__ . '/views', 'stegback-ratepay-views');
+
+        $this->publishes([
+            __DIR__.'/views' => resource_path('/views'),
+        ], 'stegback-ratepay-views');
     }
 
     public function register()
