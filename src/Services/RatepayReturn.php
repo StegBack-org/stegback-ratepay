@@ -65,9 +65,26 @@ class RatepayReturn
         return $responseArray;
     }
 
-    public function credit()
+    public function credit(array $data, string $transaction_id)
     {
-        
+        if(!$transaction_id || $transaction_id == '')
+        {
+            $response = '<content><error code="400">transaction_id is required.</error></content>';
+        }else{
+            $xmlRequest = (new BuildXmlService)->creditXml([
+                'operation' => 'PAYMENT_CHANGE',
+                'subtype' => 'credit',
+                'profileID' => $this->profileID,
+                'securityCode' => $this->securityCode,
+                'transaction_id' => $transaction_id,
+                'data' => $data,
+            ]);
+            $response = (new CurlService)->sendRequest($xmlRequest);
+
+            $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+            return $responseArray;
+
+        }
     }
 
     public function changeOrder($transaction_id, array $NewProduct)

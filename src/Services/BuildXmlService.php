@@ -195,7 +195,7 @@ class BuildXmlService
         }
 
         $xmlString .= '<external>
-                            <merchant-consumer-id>123</merchant-consumer-id>
+                            <merchant-consumer-id>guest123</merchant-consumer-id>
                         </external>
                         <customer-device>
                             <device-token>' . $data['device_token'] . '</device-token>
@@ -379,6 +379,36 @@ class BuildXmlService
             }
             
         $xmlString .= '</shopping-basket></content></request>';
+        return $xmlString;
+    }
+
+
+    public function creditXml(array $data){
+        $transactionId = $data['transaction_id'];
+        
+        $profileID = htmlspecialchars($data['profileID']);
+        $securityCode = htmlspecialchars($data['securityCode']);
+
+        $xmlString = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
+
+        $xmlString .= '<head><system-id>myshop</system-id>';
+        $xmlString .= '<transaction-id>'.$data['transaction_id'].'</transaction-id>';
+        $xmlString .= '<operation subtype="credit">' . $data['operation'] . '</operation>';
+        $xmlString .= '<credential>
+                            <profile-id>' . $profileID . '</profile-id>
+                            <securitycode>' . $securityCode . '</securitycode>
+                        </credential>';
+        $xmlString .= '</head>';
+
+        $xmlString .= '<content>';
+
+        $xmlString.= '<shopping-basket amount="-'.@$data['data']['discountAmount'].'" currency="EUR">
+                            <discount unit-price-gross="-'.@$data['data']['discountAmount'].'" tax-rate="19.00">Kulanzgutschrift</discount>
+                        </shopping-basket>';
+
+        $xmlString .= '</content></request>';
+
         return $xmlString;
     }
 }
