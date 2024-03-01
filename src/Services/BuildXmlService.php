@@ -372,7 +372,7 @@ class BuildXmlService
 
                  $xmlString .= '</items>
                                 <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="19">Rabatt</discount>
-                                <discount unit-price-gross="'.@$data['product']['shipping'].'" tax-rate="19">Versandkosten</discount>';
+                                <shipping unit-price-gross="'.@$data['product']['shipping'].'" tax-rate="19">Versandkosten</shipping>';
                 break;
             case 'full':
                 $xmlString .= '<items/>';
