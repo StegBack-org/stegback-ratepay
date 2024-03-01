@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.3.29"
+        "php": "^8.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
