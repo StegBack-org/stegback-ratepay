@@ -424,7 +424,7 @@ class BuildXmlService
 
         $xmlString .= '<head><system-id>myshop</system-id>';
         $xmlString .= '<transaction-id>' . $data['transaction_id'] . '</transaction-id>';
-        $xmlString .= '<operation subtype="debit">' . $data['operation'] . '</operation>';
+        $xmlString .= '<operation subtype="credit">' . $data['operation'] . '</operation>';
         $xmlString .= '<credential>
                             <profile-id>' . $profileID . '</profile-id>
                             <securitycode>' . $securityCode . '</securitycode>

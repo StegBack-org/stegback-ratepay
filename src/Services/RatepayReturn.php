@@ -94,7 +94,7 @@ class RatepayReturn
         } else {
             $xmlRequest = (new BuildXmlService)->debitXml([
                 'operation' => 'PAYMENT_CHANGE',
-                'subtype' => 'debit',
+                'subtype' => 'credit',
                 'profileID' => $this->profileID,
                 'securityCode' => $this->securityCode,
                 'transaction_id' => $transaction_id,
