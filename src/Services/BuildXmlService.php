@@ -411,4 +411,36 @@ class BuildXmlService
 
         return $xmlString;
     }
+
+    public function debitXml(array $data)
+    {
+        $transactionId = $data['transaction_id'];
+
+        $profileID = htmlspecialchars($data['profileID']);
+        $securityCode = htmlspecialchars($data['securityCode']);
+
+        $xmlString = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
+
+        $xmlString .= '<head><system-id>myshop</system-id>';
+        $xmlString .= '<transaction-id>' . $data['transaction_id'] . '</transaction-id>';
+        $xmlString .= '<operation subtype="debit">' . $data['operation'] . '</operation>';
+        $xmlString .= '<credential>
+                            <profile-id>' . $profileID . '</profile-id>
+                            <securitycode>' . $securityCode . '</securitycode>
+                        </credential>';
+        $xmlString .= '</head>';
+
+        $xmlString .= '<content>';
+
+        $xmlString .= '<shopping-basket amount="' . @$data['data']['amount'] . '" currency="EUR">
+        <items>
+        <item article-number="debit" quantity="1" tax-rate="19.00" unit-price-gross="' . @$data['data']['amount'] . '">Fee</item>
+        </items>
+        </shopping-basket>';
+
+        $xmlString .= '</content></request>';
+
+        return $xmlString;
+    }
 }
