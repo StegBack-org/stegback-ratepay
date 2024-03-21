@@ -37,10 +37,14 @@ class RatepayShippmentApi
             'tracking_data' => $data,
         ]);
 
-        $response = (new CurlService)->sendRequest($xmlRequest);
-
-        return (new RatepayApi)->xmlResponseToArray($response);
+        return $xmlRequest;
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // return (new RatepayApi)->xmlResponseToArray($response);
     }
 
+    public function submitRequest($xmlRequest){
+        $response = (new CurlService)->sendRequest($xmlRequest);
+        return (new RatepayApi)->xmlResponseToArray($response);
+    }
 
 }

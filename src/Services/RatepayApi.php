@@ -16,6 +16,12 @@ class RatepayApi
         $this->securityCode = env('SECURITY_CODE');
     }
 
+
+    public function submitRequest($xmlRequest){
+        $response = (new CurlService)->sendRequest($xmlRequest);
+        return $this->xmlResponseToArray($response);
+    }
+
     public function request($data)
     {
         $method = $data['method'];
@@ -64,8 +70,10 @@ class RatepayApi
             'orderData' => $data['order_data'],
             'device_token' => $device_token,
         ]);
-        $response = (new CurlService)->sendRequest($xmlRequest);
-        return $this->xmlResponseToArray($response);
+
+        return $xmlRequest
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // return $this->xmlResponseToArray($response);
     }
 
     public function paymentCapture($data)
@@ -83,8 +91,10 @@ class RatepayApi
             'method' => '',
             'order_id' => $data['order_id'],
         ]);
-        $response = (new CurlService)->sendRequest($xmlRequest);
-        return $this->xmlResponseToArray($response);
+
+        return $xmlRequest;
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // return $this->xmlResponseToArray($response);
     }
 
     public function EmiPaymentRequest($transactionId, $method, $device_token, $data)
@@ -98,10 +108,9 @@ class RatepayApi
             'orderData' => $data['order_data'],
             'device_token' => $device_token, // Device token should be unique for each device.
         ]);
-        // return $xmlRequest;
-
-        $response = (new CurlService)->sendRequest($xmlRequest);
-        return $this->xmlResponseToArray($response);
+        return $xmlRequest;
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // return $this->xmlResponseToArray($response);
     }
 
     

@@ -16,6 +16,11 @@ class RatepayReturn
         $this->securityCode = env('SECURITY_CODE');
     }
 
+    public function submitRequest($xmlRequest){
+        $response = (new CurlService)->sendRequest($xmlRequest);
+        return (new RatepayApi)->xmlResponseToArray($response);
+    }
+
     /**
      * 
      */
@@ -34,7 +39,8 @@ class RatepayReturn
                 'transaction_id' => $transaction_id,
                 'product' => $product,
             ]);
-            $response = (new CurlService)->sendRequest($xmlRequest);
+            // $response = (new CurlService)->sendRequest($xmlRequest);
+            return $xmlRequest;
         }
 
         $responseArray = (new RatepayApi)->xmlResponseToArray($response);
@@ -59,7 +65,9 @@ class RatepayReturn
                 'transaction_id' => $transaction_id,
                 'product' => $product,
             ]);
-            $response = (new CurlService)->sendRequest($xmlRequest);
+            // $response = (new CurlService)->sendRequest($xmlRequest);
+
+            return $xmlRequest;
         }
         $responseArray = (new RatepayApi)->xmlResponseToArray($response);
         return $responseArray;
@@ -79,10 +87,11 @@ class RatepayReturn
                 'transaction_id' => $transaction_id,
                 'data' => $data,
             ]);
-            $response = (new CurlService)->sendRequest($xmlRequest);
+            return $xmlRequest;
+            // $response = (new CurlService)->sendRequest($xmlRequest);
 
-            $responseArray = (new RatepayApi)->xmlResponseToArray($response);
-            return $responseArray;
+            // $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+            // return $responseArray;
 
         }
     }
@@ -100,11 +109,13 @@ class RatepayReturn
                 'transaction_id' => $transaction_id,
                 'data' => $data,
             ]);
-            $response = (new CurlService)->sendRequest($xmlRequest);
 
-            $responseArray = (new RatepayApi)->xmlResponseToArray($response);
-            return $responseArray;
+            return $xmlRequest;
+
+            // $response = (new CurlService)->sendRequest($xmlRequest);
         }
+        $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+        return $responseArray;
     }
 
 
@@ -123,7 +134,9 @@ class RatepayReturn
                 'transaction_id' => $transaction_id,
                 'product' => $NewProduct,
             ]);
-            $response = (new CurlService)->sendRequest($xmlRequest);
+
+            return $xmlRequest;
+            // $response = (new CurlService)->sendRequest($xmlRequest);
         }
         $responseArray = (new RatepayApi)->xmlResponseToArray($response);
         return $responseArray;

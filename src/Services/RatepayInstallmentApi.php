@@ -17,6 +17,11 @@ class RatepayInstallmentApi
         $this->securityCode = env('SECURITY_CODE');
     }
 
+    public function submitRequest($xmlRequest){
+        $response = (new CurlService)->sendRequest($xmlRequest);
+        return (new RatepayApi)->xmlResponseToArray($response);
+    }
+
     public function configurationRequest($data)
     {
         $type = $data['type'];
@@ -27,10 +32,10 @@ class RatepayInstallmentApi
             'type' => $type ?? 'rate',
             'amount' => 500,
         ]);
-
-        $response = (new CurlService)->sendRequest($xmlRequest);
-        $responseArray = (new RatepayApi)->xmlResponseToArray($response);
-        return response()->json($responseArray);
+        return $xmlRequest;
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+        // return response()->json($responseArray);
     }
 
 
@@ -54,8 +59,9 @@ class RatepayInstallmentApi
             'type' => $type,
         ]);
         // dd($xmlRequest);
-        $response = (new CurlService)->sendRequest($xmlRequest);
-        $responseArray = (new RatepayApi)->xmlResponseToArray($response);
-        return response()->json($responseArray);
+        return $xmlRequest
+        // $response = (new CurlService)->sendRequest($xmlRequest);
+        // $responseArray = (new RatepayApi)->xmlResponseToArray($response);
+        // return response()->json($responseArray);
     }
 }
