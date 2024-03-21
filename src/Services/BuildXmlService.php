@@ -294,9 +294,12 @@ class BuildXmlService
                 </credential>
                 <external>
                     <order-id>' . $order_id . '</order-id>
-                    <tracking>
-                        <id provider="' . $data['tracking_data']['shipping_provider'] . '">' . $data['tracking_data']['tracking_number'] . '</id>
-                    </tracking>
+                    <tracking>';
+                    foreach($data['tracking_data']['shipping_provider'] as $provider){
+                        $xmlString .='<id provider="' . $provider['shipping_provider_name'] . '">' . $provider['tracking_number'] . '</id>';
+                    }
+
+                    $xmlString .='</tracking>
                 </external>
                 <meta>
                     <systems>
