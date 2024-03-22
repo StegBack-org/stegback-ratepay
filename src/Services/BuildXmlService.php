@@ -95,13 +95,13 @@ class BuildXmlService
 
                 foreach ($data['orderData']['product'] as $product) {
                     $xmlString .=
-                        '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="19" unit-price-gross="' . $product['price'] . '">' . $product['name'] . '</item>';
+                        '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="0" unit-price-gross="' . $product['price'] . '">' . $product['name'] . '</item>';
                 }
 
                 $xmlString .= '
                     </items>
-                        <discount unit-price-gross="-' . $data['orderData']['discountAmount'] . '" tax-rate="19">Rabatt</discount>
-                        <shipping unit-price-gross="' . $data['orderData']['shippingAmount'] . '" tax-rate="19">Versandkosten</shipping>
+                        <discount unit-price-gross="-' . $data['orderData']['discountAmount'] . '" tax-rate="0">Rabatt</discount>
+                        <shipping unit-price-gross="' . $data['orderData']['shippingAmount'] . '" tax-rate="0">Versandkosten</shipping>
                     </shopping-basket>
                     <payment currency="EUR" method="' . $method . '">
                         <amount>' . $data['orderData']['totalAmount'] . '</amount>
@@ -246,13 +246,13 @@ class BuildXmlService
 
         foreach ($data['orderData']['product'] as $product) {
             $xmlString .=
-                '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="19" unit-price-gross="' . $product['price'] . '">' . $product['name'] . '</item>';
+                '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="0" unit-price-gross="' . $product['price'] . '">' . $product['name'] . '</item>';
         }
 
         $xmlString .= '
                         </items>
-                        <discount unit-price-gross="-' . $data['orderData']['discountAmount'] . '" tax-rate="19">Rabatt</discount>
-                        <shipping unit-price-gross="' . $data['orderData']['shippingAmount'] . '" tax-rate="19">Versandkosten</shipping>
+                        <discount unit-price-gross="-' . $data['orderData']['discountAmount'] . '" tax-rate="0">Rabatt</discount>
+                        <shipping unit-price-gross="' . $data['orderData']['shippingAmount'] . '" tax-rate="0">Versandkosten</shipping>
                         </shopping-basket>';
 
         $xmlString .= '<payment currency="EUR" method="' . $data['method'] . '">
@@ -317,13 +317,13 @@ class BuildXmlService
                     <items>';
 
         foreach ($data['tracking_data']['products'] as $product) {
-            $xmlString .= '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="19" unit-price-gross="' . $product['cost_per_item'] . '">' . $product['product_name'] . '</item>';
+            $xmlString .= '<item article-number="' . $product['id'] . '" quantity="' . $product['quantity'] . '" tax-rate="0" unit-price-gross="' . $product['cost_per_item'] . '">' . $product['product_name'] . '</item>';
         }
 
         $xmlString .=
             '</items>
-                    <discount unit-price-gross="-' . $data['tracking_data']['discountAmount'] . '" tax-rate="19">Rabatt</discount>
-                    <shipping unit-price-gross="' . $data['tracking_data']['shippingAmount'] . '" tax-rate="19">Versandkosten</shipping>
+                    <discount unit-price-gross="-' . $data['tracking_data']['discountAmount'] . '" tax-rate="0">Rabatt</discount>
+                    <shipping unit-price-gross="' . $data['tracking_data']['shippingAmount'] . '" tax-rate="0">Versandkosten</shipping>
                 </shopping-basket>
             </content>';
 
@@ -370,12 +370,12 @@ class BuildXmlService
                 $xmlString .= '<items>';
 
                 foreach($data['product']['item'] as $item){
-                    $xmlString .= '<item article-number="'.$item['product_id'].'" quantity="'.$item['product_quantity'].'" tax-rate="19" unit-price-gross="'.$item['product_price'].'">'.$item['product_name'].'</item>';
+                    $xmlString .= '<item article-number="'.$item['product_id'].'" quantity="'.$item['product_quantity'].'" tax-rate="0" unit-price-gross="'.$item['product_price'].'">'.$item['product_name'].'</item>';
                 }
 
                  $xmlString .= '</items>
-                                <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="19">Rabatt</discount>
-                                <shipping unit-price-gross="'.@$data['product']['shipping'].'" tax-rate="19">Versandkosten</shipping>';
+                                <discount unit-price-gross="-'.$data['product']['discount'].'" tax-rate="0">Rabatt</discount>
+                                <shipping unit-price-gross="'.@$data['product']['shipping'].'" tax-rate="0">Versandkosten</shipping>';
                 break;
             case 'full':
                 $xmlString .= '<items/>';

@@ -16,8 +16,8 @@ class RatepayReturn
         $this->securityCode = env('SECURITY_CODE');
     }
 
-    public function submitRequest($xmlRequest){
-        $response = (new CurlService)->sendRequest($xmlRequest);
+    public function submitRequest($xmlRequest,$mode){
+        $response = (new CurlService)->sendRequest($xmlRequest,$mode);
         return (new RatepayApi)->xmlResponseToArray($response);
     }
 

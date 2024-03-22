@@ -17,8 +17,8 @@ class RatepayApi
     }
 
 
-    public function submitRequest($xmlRequest){
-        $response = (new CurlService)->sendRequest($xmlRequest);
+    public function submitRequest($xmlRequest,$mode){
+        $response = (new CurlService)->sendRequest($xmlRequest,$mode);
         return $this->xmlResponseToArray($response);
     }
 
@@ -71,7 +71,7 @@ class RatepayApi
             'device_token' => $device_token,
         ]);
 
-        return $xmlRequest
+        return $xmlRequest;
         // $response = (new CurlService)->sendRequest($xmlRequest);
         // return $this->xmlResponseToArray($response);
     }
