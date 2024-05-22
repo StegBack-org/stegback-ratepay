@@ -22,7 +22,8 @@ class RatepayShippmentApi
         $transactionId = $data['transactionId'];
         $order_id = $data['order_id'];
         $paymentResponse = $this->addShippingBuildXml($transactionId, $order_id, $data);
-        return response()->json($paymentResponse);
+        return $paymentResponse;
+
     }
 
 
