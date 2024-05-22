@@ -407,7 +407,7 @@ class BuildXmlService
         $xmlString .= '<content>';
 
         $xmlString.= '<shopping-basket amount="-'.@$data['data']['discountAmount'].'" currency="EUR">
-                            <discount unit-price-gross="-'.@$data['data']['discountAmount'].'" tax-rate="19.00">Kulanzgutschrift</discount>
+                            <discount unit-price-gross="-'.@$data['data']['discountAmount'].'" tax-rate="0">Kulanzgutschrift</discount>
                         </shopping-basket>';
 
         $xmlString .= '</content></request>';
@@ -438,7 +438,7 @@ class BuildXmlService
 
         $xmlString .= '<shopping-basket amount="' . @$data['data']['amount'] . '" currency="EUR">
         <items>
-        <item article-number="debit" quantity="1" tax-rate="19.00" unit-price-gross="' . @$data['data']['amount'] . '">Fee</item>
+        <item article-number="debit" quantity="1" tax-rate="0" unit-price-gross="' . @$data['data']['amount'] . '">Fee</item>
         </items>
         </shopping-basket>';
 
