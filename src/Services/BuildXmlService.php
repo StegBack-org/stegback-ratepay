@@ -16,7 +16,7 @@ class BuildXmlService
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
 
         $xmlString .= '<head>
-        <system-id>'.env('SHOP_NAME').'</system-id>
+        <system-id>'.config('ratepay.shop_name').'</system-id>
         <operation>' . $operation . '</operation>
         <credential>
             <profile-id>' . $profileID . '</profile-id>
@@ -133,7 +133,7 @@ class BuildXmlService
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
 
         $xmlString .= '<head>
-        <system-id>'.env('SHOP_NAME').'</system-id>
+        <system-id>'.config('ratepay.shop_name').'</system-id>
         <operation subtype="calculation-by-' . $data['type'] . '">' . $operation . '</operation>
         <credential>
             <profile-id>' . $profileID . '</profile-id>
@@ -183,7 +183,7 @@ class BuildXmlService
         $xmlString = '<?xml version="1.0" encoding="UTF-8"?>';
         $xmlString .= '<request version="1.0" xmlns="urn://www.ratepay.com/payment/1_0">';
         $xmlString .= '<head>
-                        <system-id>'.env('SHOP_NAME').'</system-id>
+                        <system-id>'.config('ratepay.shop_name').'</system-id>
                         <operation>' . $operation . '</operation>
                         <credential>
                             <profile-id>' . $profileID . '</profile-id>
@@ -285,7 +285,7 @@ class BuildXmlService
 
         $xmlString .=
             '<head>
-                <system-id>'.env('SHOP_NAME').'</system-id>
+                <system-id>'.config('ratepay.shop_name').'</system-id>
                 <transaction-id>' . $transactionId . '</transaction-id>
                 <operation>' . $operation . '</operation>
                 <credential>

@@ -13,8 +13,8 @@ class RatepayShippmentApi
 
     public function __construct()
     {
-        $this->profileID = env('PROFILE_ID');
-        $this->securityCode = env('SECURITY_CODE');
+        $this->profileID = config('ratepay.profile_id');
+        $this->securityCode = config('ratepay.SECURITY_CODE');
     }
 
     public function deliveryConfirm($data)
